@@ -1,0 +1,45 @@
+<div *ngIf="(isLoggedIn$ | async) && products else elseBlock">
+    <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+        <div style="display: flex; flex-direction: row; justify-content: flex-end;">
+            <div style="float: right;">
+                <div style="
+            /* height: 50vh; */
+            margin: 20px;
+            width: 20vw;
+            border-style: solid;
+            border-color: darkgray;
+            border-radius: 7px;
+            border-width: 1px;
+            padding: 20px;
+            ">
+                    <strong>products</strong>
+                    <div *ngFor="let category of categories; let i = index" style="margin-top: 10px;">
+                        <input type="checkbox" formArrayName="selectedCategories" id="{{category}}"
+                            (change)="onCheck(category, $event)">
+                        <label for="{{category}}">{{category}}</label>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap; overflow: auto;">
+                <app-product-card (addProduct)="addProductToCart()" *ngFor="let product of products[selectedPage-1]"
+                    [product]="product">
+                </app-product-card>
+            </div>
+        </div>
+        <!-- <div *ngIf="pages.length == 0 else showPagination"></div> -->
+        <!-- <ng-template #showPagination> -->
+        <div class="pagination" style="display: flex; flex-direction: row; justify-content: center;">
+            <button [disabled]="selectedPage==1" (click)="changePage(selectedPage-1)">&laquo;</button>
+            <button *ngFor="let page of pages;" (click)="changePage(page+1)"
+                class="{{selectedPage == page+1 ? 'active' : ''}}">
+                {{page+1}}
+            </button>
+            <button [disabled]="selectedPage==pages.length" (click)="changePage(selectedPage+1)">&raquo;</button>
+        </div>
+        <!-- </ng-template> -->
+    </div>
+</div>
+<!-- <app-product-card *ngFor="let product in products; index as i">...</app-product-card> -->
+<ng-template #elseBlock>
+    <h3>You need to login to view products</h3>
+</ng-template>

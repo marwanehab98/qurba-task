@@ -1,0 +1,43 @@
+<!-- <p>product-card works!</p> -->
+<div class="productCard">
+    <img class="cardThumbnail" src={{product.thumbnail}} alt="Image">
+    <strong>{{product.title}}</strong>
+    <p id="description">{{product.description}}</p>
+    <p>{{product.price}} USD</p>
+    <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <p>Brand:</p>
+        <strong>{{product.brand}}</strong>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <p>Category:</p>
+        <strong>{{product.category}}</strong>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+        <p>In stock:</p>
+        <strong>{{product.stock}}</strong>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: flex-end;">
+        <strong style="color: gold;">{{product.rating}}</strong>
+        <p>(0)</p>
+    </div>
+    <div style="display: flex;
+     flex-direction: row;
+     justify-content: center;
+     width: 100%;">
+        <button (click)="addToCart()" style="width: 80%;">Add to cart</button>
+    </div>
+    <!-- <strong style="margin: 5px; font-size: xx-large;">Log in to your account</strong>
+    <h6 style="margin: 5px; font-size: large;">Welcome back! Please enter your details.</h6>
+    <div class="input">
+        <p style="margin-bottom: 0px;">Email</p>
+        <input type="text" placeholder="Enter your email" (change)="changeEmail($event)">
+    </div>
+    <div class="input">
+        <p style="margin-bottom: 0px;">Password</p>
+        <input type="password" placeholder="Enter your password" (change)="changePassword($event)">
+    </div>
+    <div class="input">
+        <button (click)="onLogin(email, password)" style="margin-top: 20px;">Sign in</button>
+    </div> -->
+    <!-- <p>{{ isLoggedIn$ | async }}</p> -->
+</div>
