@@ -1,0 +1,16 @@
+<div class="login">
+    <img class="pageLogo" src={{logoPath}} alt={{title}}>
+    <strong style="margin: 5px; font-size: xx-large;">Log in to your account</strong>
+    <h6 style="margin: 5px; font-size: large;">Welcome back! Please enter your details.</h6>
+    <div class="input">
+        <p style="margin-bottom: 0px;">Email</p>
+        <input type="text" placeholder="Enter your email" (change)="changeEmail($event)">
+    </div>
+    <div class="input">
+        <p style="margin-bottom: 0px;">Password</p>
+        <input type="password" placeholder="Enter your password" (change)="changePassword($event)">
+    </div>
+    <div class="input">
+        <button (click)="onLogin(email, password)" style="margin-top: 20px;">Sign in</button>
+    </div>
+</div>
